@@ -1,0 +1,136 @@
+/* Colors and fonts, reusable as var(--name) */
+:root {
+  --bg: #f2f4f8; 
+  --surface: #c0c5fe; 
+  --ink: #13294b; 
+  --muted: #020337;
+  --line: #042f5a; 
+  --accent: #020337; 
+  --tint: #e4f0f9;
+  --serif: Georgia, serif; 
+  --sans: system-ui, sans-serif;
+  color-scheme: light dark;
+}
+.profilepicture {
+  
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+.title {
+    text-align: center;
+    font-family: "Georgia", serif;
+    color: rgb(38, 38, 95);
+}
+.resume {
+    display: block;
+    margin: auto;
+    align-items: center;
+    width: 95%;
+}
+.pdf-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+.pdf-container embed {
+        display: block;
+        width: 600px;   /* Set desired width */
+        height: 800px;  /* Set desired height */
+        border: 1px solid #ccc;
+    }
+
+/* Dark mode: swap only the colors */
+
+
+/* Base */
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 1rem/1.6 var(--sans); }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+h1, h2, h3 { margin: 0 0 .5rem; font-family: var(--serif); }
+h1 { font-size: clamp(2.4rem, 6vw, 3.9rem); line-height: 1.1; }
+p { margin: 0 0 1rem; max-width: 42rem; }
+.muted { color: var(--muted); }
+
+/* Header and nav */
+header { background: var(--surface); border-bottom: 1px solid var(--line); }
+header, main, footer { padding-inline: max(1.5rem, calc((100% - 62rem) / 2)); }
+header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 2rem; padding-block: 1.1rem; }
+nav { display: flex; gap: .25rem; }
+nav a { padding: .5rem .9rem; color: var(--muted); text-decoration: none; border-radius: .5rem; }
+nav a:hover, nav a[aria-current="page"] { color: var(--ink); background: var(--tint); }
+
+/* Page and footer spacing */
+main { padding-block: 3.5rem 4rem; }
+footer { padding-block: 1.5rem; border-top: 1px solid var(--line); font-size: .9rem; }
+
+/* Cards */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: .75rem; padding: 1.3rem; }
+
+/* Two-column layouts (about page, resume sections, skills) */
+.about  { display: grid; grid-template-columns: 1fr 17rem; gap: 3rem; }
+.row    { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem 2.5rem; padding: 2rem 0; border-top: 1px solid var(--line); }
+.skills { display: grid; grid-template-columns: 8.5rem 1fr; gap: .5rem 1.2rem; margin: 0; }
+.row > h2 { font-size: 1.15rem; color: var(--accent); }
+.skills dt { font-weight: 600; }
+.skills dd { margin: 0; }
+
+
+/* Button */
+.btn { display: inline-block; padding: .8rem 1.4rem; background: var(--ink); color: var(--bg); font-weight: 600; text-decoration: none; border-radius: .5rem; }
+.btn:hover { background: var(--accent); color: #fff; }
+
+/* Profile card: banner plus an avatar that overlaps it */
+.profile { max-width: 34rem; padding: 0; overflow: hidden; }
+.cover { height: 5.5rem; background: linear-gradient(120deg, var(--accent), var(--ink)); }
+.profile-body { padding: 0 1.6rem 1.6rem; }
+.avatar { display: grid; place-items: center; width: 5rem; height: 5rem; margin-top: -2.5rem; background: var(--tint); border: 4px solid var(--surface); border-radius: 50%; font: 600 1.5rem var(--serif); }
+
+/* Phones: stack columns, spread nav links across the row */
+@media (max-width: 760px) {
+  .about, .row, .skills { grid-template-columns: 1fr; gap: .75rem; }
+  nav { width: 100%; }
+  nav a { flex: 1; text-align: center; }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1a2d; --surface: #14233b; --ink: #e8eff7; --muted: #a3b3c8;
+    --line: #27395a; --accent: #7bafd4; --tint: #1b3250;
+  }
+}
+/* new css draft */
+
+.profile-picture {
+  display: block;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 1.5rem;   /* auto left/right = centered */
+  object-fit: cover;       /* keeps the photo from stretching */
+
+  border: 4px solid var(--surface);
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--muted);
+  margin: 0 auto 2rem;
+}
+
+.section-heading {
+  text-align: center;
+}
+
+.about-card {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.about-card p {
+  max-width: none;
+}
